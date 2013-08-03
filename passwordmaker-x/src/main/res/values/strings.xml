@@ -18,6 +18,23 @@
     <string name="title_section_profiles">Profiles</string>
     <string name="title_section_about">About</string>
 
+    <string name="profile_edit_label_name">Profile Name</string>
+    <string name="profile_edit_label_url_components">URL Components</string>
+    <string name="profile_edit_label_url_protocol">Protocol</string>
+    <string name="profile_edit_label_url_subdomains">Subdomain(s)</string>
+    <string name="profile_edit_label_url_domain">Domain</string>
+    <string name="profile_edit_label_url_other">Port, path, anchor, query params</string>
+    <string name="profile_edit_label_hashing_algorithm">Hashing Algorithm</string>
+    <string name="profile_edit_label_l33t_options">l33t Options</string>
+    <string name="profile_edit_label_password_length">Password Length</string>
+    <string name="profile_edit_label_username">Username</string>
+    <string name="profile_edit_label_modifier">Modifier</string>
+    <string name="profile_edit_label_charset">Character Set</string>
+    <string name="profile_edit_label_password_prefix">Password Prefix</string>
+    <string name="profile_edit_label_password_suffix">Password Suffix</string>
+
+    <string name="profile_edit_hint_custom_charset">Custom character set</string>
+
     <string name="toast_profile_save_success">Profile saved</string>
     <string name="toast_profile_list_default">Default profile created due to empty profile list</string>
 

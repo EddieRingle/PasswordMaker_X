@@ -11,7 +11,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Profile Name"
+            android:text="@string/profile_edit_label_name"
             style="?android:listSeparatorTextViewStyle" />
         <EditText
             android:id="@+id/profile_name"
@@ -22,36 +22,36 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="URL Components"
+            android:text="@string/profile_edit_label_url_components"
             style="?android:listSeparatorTextViewStyle" />
         <CheckBox
             android:id="@+id/use_protocol"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:text="Protocol" />
+            android:text="@string/profile_edit_label_url_protocol" />
         <CheckBox
             android:id="@+id/use_subdomain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:text="Subdomain(s)" />
+            android:text="@string/profile_edit_label_url_subdomains" />
         <CheckBox
             android:id="@+id/use_domain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:text="Domain" />
+            android:text="@string/profile_edit_label_url_domain" />
         <CheckBox
             android:id="@+id/use_other"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:text="Port, path, anchor, query params" />
+            android:text="@string/profile_edit_label_url_other" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hashing Algorithm"
+            android:text="@string/profile_edit_label_hashing_algorithm"
             style="?android:listSeparatorTextViewStyle" />
         <Spinner
             android:id="@+id/hashing_algorithm"
@@ -61,7 +61,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="l33t Options"
+            android:text="@string/profile_edit_label_l33t_options"
             style="?android:listSeparatorTextViewStyle" />
         <Spinner
             android:id="@+id/l33t_order"
@@ -76,7 +76,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Password Length"
+            android:text="@string/profile_edit_label_password_length"
             style="?android:listSeparatorTextViewStyle" />
         <EditText
             android:id="@+id/password_length"
@@ -87,7 +87,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Username"
+            android:text="@string/profile_edit_label_username"
             style="?android:listSeparatorTextViewStyle" />
         <EditText
             android:id="@+id/username"
@@ -98,7 +98,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Modifier"
+            android:text="@string/profile_edit_label_modifier"
             style="?android:listSeparatorTextViewStyle" />
         <EditText
             android:id="@+id/modifier"
@@ -109,7 +109,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Character Set"
+            android:text="@string/profile_edit_label_charset"
             style="?android:listSeparatorTextViewStyle" />
         <Spinner
             android:id="@+id/character_set"
@@ -121,11 +121,11 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_margin="4dp"
-            android:hint="Custom character set" />
+            android:hint="@string/profile_edit_hint_custom_charset" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Password Prefix"
+            android:text="@string/profile_edit_label_password_prefix"
             style="?android:listSeparatorTextViewStyle" />
         <EditText
             android:id="@+id/password_prefix"
@@ -136,7 +136,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Password Suffix"
+            android:text="@string/profile_edit_label_password_suffix"
             style="?android:listSeparatorTextViewStyle" />
         <EditText
             android:id="@+id/password_suffix"
