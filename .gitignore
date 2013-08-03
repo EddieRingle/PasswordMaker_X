@@ -11,10 +11,20 @@
 # generated files
 bin/
 gen/
+build/
+.DS_Store
 
 # Local configuration file (sdk path, etc)
 local.properties
 
+# Gradle
+.gradle/
+
 # Eclipse project files
 .classpath
 .project
+
+# IntelliJ project files
+*.iml
+.idea/
+
