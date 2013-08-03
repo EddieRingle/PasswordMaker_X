@@ -9,7 +9,7 @@
     <string name="action_delete">Delete</string>
     <string name="action_report_issue">Report Issue</string>
 
-    <string name="report_issue_url">https://github.com/eddieringle/PasswordMaker_X</string>
+    <string name="report_issue_url">https://github.com/eddieringle/PasswordMaker_X/issues</string>
 
     <string name="title_activity_main">@string/app_name</string>
     <string name="title_activity_profile_edit">Edit Profile</string>
