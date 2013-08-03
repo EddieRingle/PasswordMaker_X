@@ -1,0 +1,7 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+project.ext.set("versionCode", (int)(System.currentTimeMillis() / 1000))

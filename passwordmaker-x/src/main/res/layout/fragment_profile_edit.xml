@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Profile Name"
+            style="?android:listSeparatorTextViewStyle" />
+        <EditText
+            android:id="@+id/profile_name"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="4dp"
+            android:inputType="text" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="URL Components"
+            style="?android:listSeparatorTextViewStyle" />
+        <CheckBox
+            android:id="@+id/use_protocol"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:text="Protocol" />
+        <CheckBox
+            android:id="@+id/use_subdomain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:text="Subdomain(s)" />
+        <CheckBox
+            android:id="@+id/use_domain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:text="Domain" />
+        <CheckBox
+            android:id="@+id/use_other"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:text="Port, path, anchor, query params" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hashing Algorithm"
+            style="?android:listSeparatorTextViewStyle" />
+        <Spinner
+            android:id="@+id/hashing_algorithm"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="4dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="l33t Options"
+            style="?android:listSeparatorTextViewStyle" />
+        <Spinner
+            android:id="@+id/l33t_order"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="4dp" />
+        <Spinner
+            android:id="@+id/l33t_level"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="4dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Password Length"
+            style="?android:listSeparatorTextViewStyle" />
+        <EditText
+            android:id="@+id/password_length"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="4dp"
+            android:inputType="number" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Username"
+            style="?android:listSeparatorTextViewStyle" />
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="4dp"
+            android:inputType="text" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Modifier"
+            style="?android:listSeparatorTextViewStyle" />
+        <EditText
+            android:id="@+id/modifier"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="4dp"
+            android:inputType="text" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Character Set"
+            style="?android:listSeparatorTextViewStyle" />
+        <Spinner
+            android:id="@+id/character_set"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="4dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Password Prefix"
+            style="?android:listSeparatorTextViewStyle" />
+        <EditText
+            android:id="@+id/password_prefix"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="4dp"
+            android:inputType="text" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Password Suffix"
+            style="?android:listSeparatorTextViewStyle" />
+        <EditText
+            android:id="@+id/password_suffix"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="4dp"
+            android:inputType="text" />
+    </LinearLayout>
+</ScrollView>

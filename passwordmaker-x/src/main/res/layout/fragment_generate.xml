@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Profile"
+            style="?android:listSeparatorTextViewStyle" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+            <Spinner
+                android:id="@+id/profile_selection"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:layout_margin="4dp" />
+            <ImageButton
+                android:id="@+id/edit_profile"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:src="@drawable/ic_menu_edit"
+                android:clickable="false" />
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Input Text"
+            style="?android:listSeparatorTextViewStyle" />
+        <EditText
+            android:id="@+id/input_text"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="4dp"
+            android:inputType="text" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Master Password"
+            style="?android:listSeparatorTextViewStyle" />
+        <EditText
+            android:id="@+id/master_password"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="4dp"
+            android:inputType="textPassword" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Generated Password"
+            style="?android:listSeparatorTextViewStyle" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical">
+            <EditText
+                android:id="@+id/generated_password"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:editable="false" />
+            <ImageButton
+                android:id="@+id/copy_password"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:contentDescription="Copy to clipboard"
+                android:src="@drawable/ic_menu_copy" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
