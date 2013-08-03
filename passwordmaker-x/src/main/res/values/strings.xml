@@ -35,6 +35,7 @@
     <string name="charset_hex_name">Hexadecimal</string>
     <string name="charset_numbers_name">Numbers</string>
     <string name="charset_symbols_name">Symbols</string>
+    <string name="charset_custom_name">Custom set</string>
 
     <string-array name="character_sets">
         <item>@string/charset_alpha_name</item>
@@ -43,6 +44,7 @@
         <item>@string/charset_hex_name</item>
         <item>@string/charset_numbers_name</item>
         <item>@string/charset_symbols_name</item>
+        <item>@string/charset_custom_name</item>
     </string-array>
 
     <!-- Hash Algorithms -->

@@ -116,6 +116,12 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_margin="4dp" />
+        <EditText
+            android:id="@+id/custom_character_set"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="4dp"
+            android:hint="Custom character set" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

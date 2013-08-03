@@ -14,6 +14,8 @@ public class PMConstants {
 
     public static final String CHARSET_SYMBOLS = "`~!@#$%^&*()_-+={}|[]\\:\";'<>?,./";
 
+    public static final String CHARSET_CUSTOM = "custom_charset";
+
     public static final String HASH_HMAC_MD4 = "hmac-md4";
 
     public static final String HASH_HMAC_MD5 = "hmac-md5";

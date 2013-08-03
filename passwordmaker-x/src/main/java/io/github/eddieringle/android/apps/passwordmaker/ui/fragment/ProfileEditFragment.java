@@ -66,6 +66,9 @@ public class ProfileEditFragment extends Fragment {
     @InjectView(R.id.use_subdomain)
     CheckBox mUseSubdomain;
 
+    @InjectView(R.id.custom_character_set)
+    EditText mCustomCharacterSet;
+
     @InjectView(R.id.modifier)
     EditText mModifier;
 
@@ -215,6 +218,7 @@ public class ProfileEditFragment extends Fragment {
         final String charsetHexName = getString(R.string.charset_hex_name);
         final String charsetNumbersName = getString(R.string.charset_numbers_name);
         final String charsetSymbolsName = getString(R.string.charset_symbols_name);
+        final String charsetCustomName = getString(R.string.charset_custom_name);
 
         final List<String> charsetList = Arrays.asList(mCharsets);
         final int charsetAlphaIndex = charsetList.indexOf(charsetAlphaName);
@@ -223,8 +227,11 @@ public class ProfileEditFragment extends Fragment {
         final int charsetHexadecimalIndex = charsetList.indexOf(charsetHexName);
         final int charsetNumbersIndex = charsetList.indexOf(charsetNumbersName);
         final int charsetSymbolsIndex = charsetList.indexOf(charsetSymbolsName);
+        final int charsetCustomIndex = charsetList.indexOf(charsetCustomName);
 
         final String charset = profile.getCharacterSet();
+        mCustomCharacterSet.setText("");
+        mCustomCharacterSet.setEnabled(false);
         if (PMConstants.CHARSET_ALPHA.equals(charset)) {
             mCharacterSet.setSelection(charsetAlphaIndex);
             mCharacterSet.setTag(PMConstants.CHARSET_ALPHA);
@@ -243,11 +250,17 @@ public class ProfileEditFragment extends Fragment {
         } else if (PMConstants.CHARSET_SYMBOLS.equals(charset)) {
             mCharacterSet.setSelection(charsetSymbolsIndex);
             mCharacterSet.setTag(PMConstants.CHARSET_SYMBOLS);
+        } else {
+            mCharacterSet.setSelection(charsetCustomIndex);
+            mCharacterSet.setTag(PMConstants.CHARSET_CUSTOM);
+            mCustomCharacterSet.setText(charset);
+            mCustomCharacterSet.setEnabled(true);
         }
 
         mCharacterSet.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                mCustomCharacterSet.setEnabled(false);
                 if (position == charsetAlphaIndex) {
                     mCharacterSet.setTag(PMConstants.CHARSET_ALPHA);
                 } else if (position == charsetAlphaNumIndex) {
@@ -260,6 +273,9 @@ public class ProfileEditFragment extends Fragment {
                     mCharacterSet.setTag(PMConstants.CHARSET_NUMBERS);
                 } else if (position == charsetSymbolsIndex) {
                     mCharacterSet.setTag(PMConstants.CHARSET_SYMBOLS);
+                } else if (position == charsetCustomIndex) {
+                    mCharacterSet.setTag(PMConstants.CHARSET_CUSTOM);
+                    mCustomCharacterSet.setEnabled(true);
                 }
             }
 
@@ -446,6 +462,12 @@ public class ProfileEditFragment extends Fragment {
             mPasswordLength.setError("Password length cannot be blank");
             return false;
         }
+        if (PMConstants.CHARSET_CUSTOM.equals((String)mCharacterSet.getTag())) {
+            if (mCustomCharacterSet.getText().toString().length() < 2) {
+                mCustomCharacterSet.setError("Custom character set must contain at least 2 characters");
+                return false;
+            }
+        }
 
         mProfile.setProfileName(mProfileName.getText().toString());
         mProfile.setUseUrlProtocol(mUseProtocol.isChecked());
@@ -455,7 +477,11 @@ public class ProfileEditFragment extends Fragment {
         mProfile.setUsername(mUsername.getText().toString());
         mProfile.setPasswordSuffix(mPasswordSuffix.getText().toString());
         mProfile.setPasswordPrefix(mPasswordPrefix.getText().toString());
-        mProfile.setCharacterSet((String)mCharacterSet.getTag());
+        if (PMConstants.CHARSET_CUSTOM.equals((String)mCharacterSet.getTag())) {
+            mProfile.setCharacterSet(mCustomCharacterSet.getText().toString());
+        } else {
+            mProfile.setCharacterSet((String)mCharacterSet.getTag());
+        }
         mProfile.setHashAlgorithm((String)mHashingAlgorithm.getTag());
         mProfile.setL33tLevel(mL33tLevel.getSelectedItemPosition() + 1);
         mProfile.setL33tOrder((String)mL33tOrder.getTag());
