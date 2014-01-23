@@ -32,4 +32,9 @@ android {
         versionName project.version
         versionCode project.versionCode
     }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
 }
