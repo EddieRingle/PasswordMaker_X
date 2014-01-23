@@ -393,12 +393,12 @@ public class ProfileEditFragment extends Fragment {
         });
 
         Integer l33tLevel = profile.getL33tLevel();
-        if (l33tLevel == null || l33tLevel < 1) {
-            l33tLevel = 1;
-        } else if (l33tLevel > 9) {
-            l33tLevel = 9;
+        if (l33tLevel == null || l33tLevel < 0) {
+            l33tLevel = 0;
+        } else if (l33tLevel > 8) {
+            l33tLevel = 8;
         }
-        mL33tLevel.setSelection(l33tLevel - 1);
+        mL33tLevel.setSelection(l33tLevel);
         mL33tLevel.setEnabled(true);
 
         final String l33tNeverName = getString(R.string.l33t_use_never);
@@ -483,7 +483,7 @@ public class ProfileEditFragment extends Fragment {
             mProfile.setCharacterSet((String)mCharacterSet.getTag());
         }
         mProfile.setHashAlgorithm((String)mHashingAlgorithm.getTag());
-        mProfile.setL33tLevel(mL33tLevel.getSelectedItemPosition() + 1);
+        mProfile.setL33tLevel(mL33tLevel.getSelectedItemPosition());
         mProfile.setL33tOrder((String)mL33tOrder.getTag());
         mProfile.setModifier(mModifier.getText().toString());
         mProfile.setPasswordLength(Integer.parseInt(mPasswordLength.getText().toString()));
