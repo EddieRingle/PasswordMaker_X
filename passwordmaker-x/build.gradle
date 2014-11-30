@@ -1,17 +1,4 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:1.0.0-rc1'
-    }
-}
 apply plugin: 'android'
-
-repositories {
-    mavenCentral()
-    mavenLocal()
-}
 
 dependencies {
     compile 'com.android.support:support-v4:18.0.+'
