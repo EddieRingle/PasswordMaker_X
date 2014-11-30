@@ -1,1 +1,3 @@
-include ':passwordmaker-x'
+rootProject.name = 'pmx-parent'
+
+include ':pmx'
