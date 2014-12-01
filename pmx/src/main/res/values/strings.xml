@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">PasswordMaker X</string>
+    <string name="launcher">PMX</string>
 
     <string name="about_attribution">By Eddie Ringle</string>
 
