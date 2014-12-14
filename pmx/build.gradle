@@ -1,24 +1,24 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 19
     buildToolsVersion '21.1.2'
-
-    defaultConfig {
-        applicationId 'io.github.eddieringle.android.apps.passwordmaker'
-        versionName project.version
-        versionCode project.versionCode
-    }
-
-    packagingOptions {
-        exclude 'META-INF/LICENSE.txt'
-        exclude 'META-INF/NOTICE.txt'
-    }
+    compileSdkVersion 19
 
     buildTypes {
         debug {
             applicationIdSuffix '.dev'
         }
+    }
+
+    defaultConfig {
+        applicationId 'io.github.eddieringle.android.apps.passwordmaker'
+        versionCode project.versionCode
+        versionName project.version
+    }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
     }
 }
 
