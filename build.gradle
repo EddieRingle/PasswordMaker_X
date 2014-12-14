@@ -17,7 +17,3 @@ subprojects {
 }
 
 project.ext.set("versionCode", (int)(System.currentTimeMillis() / 1000))
-
-task wrapper(type: Wrapper) {
-    gradleVersion = "1.9"
-}
