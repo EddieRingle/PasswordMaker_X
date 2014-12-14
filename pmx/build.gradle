@@ -12,6 +12,8 @@ android {
 
     defaultConfig {
         applicationId 'io.github.eddieringle.android.apps.passwordmaker'
+        minSdkVersion 14
+        targetSdkVersion 19
         versionCode project.versionCode
         versionName project.version
     }
