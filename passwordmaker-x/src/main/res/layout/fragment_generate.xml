@@ -8,7 +8,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="@dimen/activity_vertical_margin"
-        android:paddingBottom="@dimen/activity_vertical_margin">
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -30,7 +32,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground"
+                android:background="?attr/selectableItemBackground"
                 android:src="@drawable/ic_menu_edit"
                 android:clickable="false" />
         </LinearLayout>
@@ -78,7 +80,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:padding="8dp"
-                android:background="?android:attr/selectableItemBackground"
+                android:background="?attr/selectableItemBackground"
                 android:contentDescription="Copy to clipboard"
                 android:src="@drawable/ic_menu_copy" />
         </LinearLayout>

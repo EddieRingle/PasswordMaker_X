@@ -6,13 +6,14 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import io.github.eddieringle.android.apps.passwordmaker.R;
 import io.github.eddieringle.android.apps.passwordmaker.ext.ScopedBus;
 
-public class BaseActivity extends FragmentActivity {
+public class BaseActivity extends AppCompatActivity {
 
     public static final int NO_LAYOUT = -1;
 

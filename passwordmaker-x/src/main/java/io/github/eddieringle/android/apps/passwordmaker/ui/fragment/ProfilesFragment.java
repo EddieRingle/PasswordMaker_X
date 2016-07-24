@@ -180,7 +180,7 @@ public class ProfilesFragment extends ListFragment {
 
             convertView.setBackgroundColor(Color.TRANSPARENT);
             if (isPositionChecked(position)) {
-                convertView.setBackgroundResource(R.drawable.checked_background_passwordmaker);
+                convertView.setBackgroundResource(R.color.checked_passwordmaker);
             }
 
             return convertView;

@@ -1,9 +1,9 @@
 package io.github.eddieringle.android.apps.passwordmaker.ui.fragment;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -106,11 +106,11 @@ public class ProfileEditFragment extends Fragment {
         Bundle args = getArguments();
         mProfile = GsonUtils.fromJson(args.getString("profile", ""), PMProfile.class);
 
-        getBaseActivity().getActionBar().setSubtitle(mProfile.getProfileName());
+        getBaseActivity().getSupportActionBar().setSubtitle(mProfile.getProfileName());
 
         if (mProfile.getProfileName() == null || mProfile.getProfileName().isEmpty()) {
-            getBaseActivity().getActionBar().setTitle("New Profile");
-            getBaseActivity().getActionBar().setSubtitle(null);
+            getBaseActivity().getSupportActionBar().setTitle("New Profile");
+            getBaseActivity().getSupportActionBar().setSubtitle(null);
             mProfile.setProfileName("");
         }
 
@@ -150,7 +150,7 @@ public class ProfileEditFragment extends Fragment {
 
         inflater.inflate(R.menu.edit_profile, menu);
 
-        ActionBar bar = getBaseActivity().getActionBar();
+        ActionBar bar = getBaseActivity().getSupportActionBar();
         bar.setHomeButtonEnabled(true);
         bar.setDisplayHomeAsUpEnabled(true);
     }
