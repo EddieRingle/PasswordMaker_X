@@ -13,15 +13,13 @@ public class ScopedBus {
     private boolean active;
 
     public void register(Object obj) {
-        objects.add(obj);
-        if (active) {
+        if (objects.add(obj) && active) {
             bus.register(obj);
         }
     }
 
     public void unregister(Object obj) {
-        objects.remove(obj);
-        if (active) {
+        if (objects.remove(obj) && active) {
             bus.unregister(obj);
         }
     }
