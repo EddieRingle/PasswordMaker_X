@@ -4,6 +4,7 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
@@ -67,6 +68,74 @@ public class GenerateFragment extends Fragment {
     @InjectView(R.id.copy_password)
     ImageButton mCopyPassword;
 
+    @InjectView(R.id.using_text)
+    TextView mUsingText;
+
+    private static String processInputText(PMProfile profile, String input) {
+        if (input.isEmpty()) {
+            return "";
+        }
+        Uri uri;
+        boolean emptyProtocol;
+        if (input.contains("://")) {
+            emptyProtocol = false;
+            uri = Uri.parse(input);
+        } else {
+            emptyProtocol = true;
+            uri = Uri.parse("://" + input);
+        }
+        StringBuilder result = new StringBuilder(input.length());
+        if (profile.getUseUrlProtocol() && uri.getScheme() != null && !emptyProtocol) {
+            result.append(uri.getScheme());
+            result.append(':');
+            if (input.contains("://")) {
+                result.append("//");
+            }
+        }
+        if (uri.getUserInfo() != null) {
+            result.append(uri.getUserInfo()).append('@');
+        }
+        if (uri.getHost() != null) {
+            String[] host = uri.getHost().split("\\.");
+            if (profile.getUseUrlSubdomain() && host.length > 2) {
+                for (int i = 0; i < host.length - 2; i++) {
+                    if (i != 0) {
+                        result.append('.');
+                    }
+                    result.append(host[i]);
+                }
+                if (profile.getUseUrlDomain()) {
+                    result.append('.');
+                }
+            }
+            if (profile.getUseUrlDomain()) {
+                if (host.length > 1) {
+                    result.append(host[host.length - 2]);
+                }
+                if (host.length > 0) {
+                    result.append('.').append(host[host.length - 1]);
+                }
+            }
+        }
+        if (profile.getUseUrlOther()) {
+            if (uri.getPort() >= 0) {
+                result.append(':').append(uri.getPort());
+            }
+            boolean hasPath = false;
+            if (uri.getPath() != null) {
+                hasPath = true;
+                result.append(uri.getPath());
+            }
+            if (uri.getQuery() != null) {
+                if (!hasPath) {
+                    result.append('/');
+                }
+                result.append('?').append(uri.getQuery());
+            }
+        }
+        return result.toString();
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_generate, container, false);
@@ -89,6 +158,8 @@ public class GenerateFragment extends Fragment {
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
                 if ("file:///android_asset/passwordmaker.html".equals(url)) {
+                    String useText = processInputText(mSelectedProfile, mInputText.getText().toString());
+                    mUsingText.setText(getString(R.string.using_text, useText));
                     StringBuilder sb = new StringBuilder();
                     sb.append("javascript:pmxApp.submitPassword(pmxGenerate(");
                     sb.append("'" + StringEscapeUtils.escapeEcmaScript(mSelectedProfile.getCharacterSet()) + "',");
@@ -97,7 +168,7 @@ public class GenerateFragment extends Fragment {
                     sb.append(Integer.toString(mSelectedProfile.getL33tLevel()) + ",");
                     sb.append(Integer.toString(mSelectedProfile.getPasswordLength()) + ",");
                     sb.append("'" + mMasterPassword.getText().toString() + "',");
-                    sb.append("'" + mInputText.getText().toString() + "',");
+                    sb.append("'" + useText + "',");
                     sb.append("'" + StringEscapeUtils.escapeEcmaScript(mSelectedProfile.getUsername()) + "',");
                     sb.append("'" + StringEscapeUtils.escapeEcmaScript(mSelectedProfile.getModifier()) + "',");
                     sb.append("'" + StringEscapeUtils.escapeEcmaScript(mSelectedProfile.getPasswordPrefix()) + "',");

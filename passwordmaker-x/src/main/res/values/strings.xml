@@ -117,6 +117,7 @@
     <string name="l33t_level_7">Level 7</string>
     <string name="l33t_level_8">Level 8</string>
     <string name="l33t_level_9">Level 9</string>
+    <string name="using_text">Using text: %1$s</string>
 
     <string-array name="l33t_levels">
         <item>@string/l33t_level_1</item>

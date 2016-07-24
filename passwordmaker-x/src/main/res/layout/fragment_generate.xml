@@ -82,5 +82,13 @@
                 android:contentDescription="Copy to clipboard"
                 android:src="@drawable/ic_menu_copy" />
         </LinearLayout>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="4dp" />
+        <TextView
+            android:id="@+id/using_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp" />
     </LinearLayout>
 </ScrollView>
