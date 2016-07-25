@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -53,6 +55,8 @@ public class ProfileEditFragment extends Fragment {
     private String[] mL33tOrders;
 
     private PMProfile mProfile;
+
+    private String mCustomCharsetCache;
 
     @InjectView(R.id.use_domain)
     CheckBox mUseDomain;
@@ -230,7 +234,7 @@ public class ProfileEditFragment extends Fragment {
         final int charsetCustomIndex = charsetList.indexOf(charsetCustomName);
 
         final String charset = profile.getCharacterSet();
-        mCustomCharacterSet.setText("");
+        mCustomCharsetCache = null;
         mCustomCharacterSet.setEnabled(false);
         if (PMConstants.CHARSET_ALPHA.equals(charset)) {
             mCharacterSet.setSelection(charsetAlphaIndex);
@@ -251,6 +255,7 @@ public class ProfileEditFragment extends Fragment {
             mCharacterSet.setSelection(charsetSymbolsIndex);
             mCharacterSet.setTag(PMConstants.CHARSET_SYMBOLS);
         } else {
+            mCustomCharsetCache = charset;
             mCharacterSet.setSelection(charsetCustomIndex);
             mCharacterSet.setTag(PMConstants.CHARSET_CUSTOM);
             mCustomCharacterSet.setText(charset);
@@ -263,24 +268,50 @@ public class ProfileEditFragment extends Fragment {
                 mCustomCharacterSet.setEnabled(false);
                 if (position == charsetAlphaIndex) {
                     mCharacterSet.setTag(PMConstants.CHARSET_ALPHA);
+                    mCustomCharacterSet.setText(PMConstants.CHARSET_ALPHA);
                 } else if (position == charsetAlphaNumIndex) {
                     mCharacterSet.setTag(PMConstants.CHARSET_ALPHANUM);
+                    mCustomCharacterSet.setText(PMConstants.CHARSET_ALPHANUM);
                 } else if (position == charsetAlphaNumSymIndex) {
                     mCharacterSet.setTag(PMConstants.CHARSET_ALPHANUMSYM);
+                    mCustomCharacterSet.setText(PMConstants.CHARSET_ALPHANUMSYM);
                 } else if (position == charsetHexadecimalIndex) {
                     mCharacterSet.setTag(PMConstants.CHARSET_HEX);
+                    mCustomCharacterSet.setText(PMConstants.CHARSET_HEX);
                 } else if (position == charsetNumbersIndex) {
                     mCharacterSet.setTag(PMConstants.CHARSET_NUMBERS);
+                    mCustomCharacterSet.setText(PMConstants.CHARSET_NUMBERS);
                 } else if (position == charsetSymbolsIndex) {
                     mCharacterSet.setTag(PMConstants.CHARSET_SYMBOLS);
+                    mCustomCharacterSet.setText(PMConstants.CHARSET_SYMBOLS);
                 } else if (position == charsetCustomIndex) {
                     mCharacterSet.setTag(PMConstants.CHARSET_CUSTOM);
+                    if (mCustomCharsetCache != null && !mCustomCharsetCache.isEmpty()) {
+                        mCustomCharacterSet.setText(mCustomCharsetCache);
+                    }
                     mCustomCharacterSet.setEnabled(true);
                 }
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+        mCustomCharacterSet.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (mCharacterSet.getSelectedItemPosition() == charsetCustomIndex) {
+                    mCustomCharsetCache = s.toString();
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
             }
         });
 
